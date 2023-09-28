@@ -7,7 +7,8 @@ tailscaled --state=/app/tailscale.state \
 until tailscale --socket=/app/tailscale.sock \
     up \
     --advertise-routes=fd12::/16 \
-    --authkey=$TAILSCALE_AUTHKEY
+    --authkey=$TAILSCALE_AUTHKEY \
+    --advertise-exit-node
 do
     echo "Waiting for auth..."
     sleep 5
